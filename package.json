@@ -7,8 +7,12 @@
   "license": "MIT",
   "scripts": {
     "sd": "BABEL_DISABLE_CACHE=1 NODE_ENV=development nodemon --inspect index.js",
-    "bc": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "bs": "NODE_ENV=production webpack --config webpack.config.server.js"
+    "bd": "NODE_ENV=development webpack --config webpack.config.dev.js",
+    "bp": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "bs": "NODE_ENV=production webpack --config webpack.config.server.js",
+    "clear": "rimraf build",
+    "cc": "rimraf public/static/dist/",
+    "cs": "rimraf build/server"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -74,7 +78,7 @@
     "style-loader": "^0.19.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.6.2",
-    "webpack": "3.0.0",
+    "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-middleware": "^1.12.1",
     "webpack-dev-server": "^2.9.4",
