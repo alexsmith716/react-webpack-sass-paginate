@@ -1,0 +1,10 @@
+
+.app {
+  width: 800px;
+  margin: 0 auto;
+  &__header {
+    margin: 0 0 10px 0;
+    font: 700 40px/1.6 'Old English', sans-serif;
+    text-align: center;
+  }
+}
