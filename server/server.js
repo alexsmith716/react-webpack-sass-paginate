@@ -82,7 +82,7 @@ if (process.env.NODE_ENV !== 'production') {
     }
   });
 
-  console.log('>>>>>>>>> server > middleware: ', middleware)
+  //console.log('>>>>>>>>> server > middleware: ', middleware)
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));

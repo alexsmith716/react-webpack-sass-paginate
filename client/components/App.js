@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import News from './News';
 import api from '../api';
 
 import css from './App.scss';
 
-class App extends Component {
+class App extends React.Component {
   
   constructor(props) {
     super(props);

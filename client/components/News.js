@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,7 @@ import Control from './Control';
 import testData from '../data/testData';
 import api from '../api';
 
-class News extends Component {
+class News extends React.Component {
 
   constructor(props) {
 
@@ -116,6 +116,25 @@ class News extends Component {
 
   // Replace map arrow function
   // with Object.keys(this.props.ntn).forEach
+/*
+      newsTemp = Object.keys(data).forEach((p,i) => {
+
+        if (i >= this.state.offset && startCount < this.props.perPage) {
+          startCount++;
+          console.log('>>>>>>>>> FOOO1: ', p);
+          console.log('>>>>>>>>> FOOO2: ', i);
+          return (
+            <Article
+              key={p.id}
+              data={p}
+              editItem={this.editItem}
+              removeItem={this.removeItem}
+            />
+          );
+        }
+        
+      })
+*/
 
   render() {
     const data = this.checkSearchVal(this.state.displayedNews);
@@ -126,21 +145,19 @@ class News extends Component {
 
     if (data.length > 0) {
 
-      Object.keys(data).forEach(function (p,i) {
-
-        if (i >= this.state.offset && startCount < this.props.perPage) {
+      newsTemp = data.map((item, index) => {
+        if (index >= this.state.offset && startCount < this.props.perPage) {
           startCount++;
           return (
             <Article
-              key={p.id}
-              data={p}
+              key={item.id}
+              data={item}
               editItem={this.editItem}
               removeItem={this.removeItem}
             />
           );
         }
-
-      })
+      });
 
     } else {
       newsTemp = <p className={css.news__warning}>Jbsdjcbdhshjscbhs.</p>;

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Form from './Form';
 
 import css from './Control.scss';
 
-class Control extends Component {
+class Control extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,27 +21,26 @@ class Control extends Component {
   render() {
     if (this.props.showForm) {
       return (
-        <div className={css.control}>
+        <div>
           <input
               type="text"
-              className={css.control__input}
               name="searchInput"
               placeholder="Search..."
               onChange={this.props.handleSearch}
           />
-          <div className={css.control__wrap}>
-              <div className={css.control__bts-wrap.btn}>
-                  <button className={css.btn__add} onClick={this.handleClick}>
-                      Create new
+          <div>
+              <div>
+                  <button onClick={this.handleClick}>
+                      Create new1
                   </button>
-                  <button className={css.btn__func} onClick={this.props.uploadTestData}>
-                      Upload test data
+                  <button onClick={this.props.uploadTestData}>
+                      Upload test data1
                   </button>
               </div>
-              <p className={css.control__counter}>
+              <p>
                   Ddvfvfd:&nbsp;
                   {' '}
-                  <span className={css.control__counter-bold}>{this.props.dataLength}</span>
+                  <span>{this.props.dataLength}</span>
               </p>
           </div>
           <Form
@@ -63,10 +62,10 @@ class Control extends Component {
             <div>
                 <div>
                     <button onClick={this.handleClick}>
-                        Create new
+                        Create new2
                     </button>
                     <button onClick={this.props.uploadTestData}>
-                        Upload test data
+                        Upload test data2
                     </button>
                 </div>
                 <p>
