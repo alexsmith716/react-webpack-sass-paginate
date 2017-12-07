@@ -1,10 +1,9 @@
-
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import css from './Article.scss';
 
-class Article extends Component {
+class Article extends React.Component {
   constructor(props) {
     super(props);
     this.handleEdit = this.handleEdit.bind(this);
@@ -29,13 +28,12 @@ class Article extends Component {
 
     return (
 
-      <div className={css.article}>
+      <div>
 
-        <div className={css.article__control}>
+        <div>
 
-          <div className={css.article__edit} onClick={this.handleEdit}>
+          <div onClick={this.handleEdit}>
             <svg
-              className={css.article__svg-icon}
               version="1.1"
               id="Capa_1"
               x="0px"
@@ -62,9 +60,8 @@ class Article extends Component {
             </svg>
           </div>
 
-          <div className={css.article__remove} onClick={this.handleDelete}>
+          <div onClick={this.handleDelete}>
             <svg
-              className={css.article__svg-icon}
               version="1.1"
               id="Capa_1"
               x="0px"
@@ -94,13 +91,13 @@ class Article extends Component {
 
         </div>
 
-        <h4 className={css.article__header}>{header}</h4>
+        <h4>{header}</h4>
 
-        <p className={css.article__author}>
-          {author} <span className={css.article__date}>{date}</span>
+        <p>
+          {author} <span>{date}</span>
         </p>
 
-        <p className={css.article__text}>
+        <p>
           {text}
         </p>
 
