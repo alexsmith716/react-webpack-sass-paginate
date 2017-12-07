@@ -146,17 +146,17 @@ class News extends React.Component {
     if (data.length > 0) {
 
       newsTemp = data.map((item, index) => {
-          if (index >= this.state.offset && startCount < this.props.perPage) {
-              startCount++;
-              return (
-                  <Article
-                      key={item.id}
-                      data={item}
-                      editItem={this.editItem}
-                      removeItem={this.removeItem}
-                  />
-              );
-          }
+        if (index >= this.state.offset && startCount < this.props.perPage) {
+          startCount++;
+          return (
+            <Article
+              key={item.id}
+              data={item}
+              editItem={this.editItem}
+              removeItem={this.removeItem}
+            />
+          );
+        }
       });
 
     } else {
