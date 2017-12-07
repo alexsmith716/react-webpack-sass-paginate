@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './App.scss';
 
 import News from './News';
 import api from '../api';

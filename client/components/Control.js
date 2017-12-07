@@ -30,7 +30,7 @@ class Control extends Component {
               onChange={this.props.handleSearch}
           />
           <div className={css.control__wrap}>
-              <div className={css.control__bts-wrap}>
+              <div className={css.control__bts-wrap.btn}>
                   <button className={css.btn__add} onClick={this.handleClick}>
                       Create new
                   </button>
@@ -39,7 +39,7 @@ class Control extends Component {
                   </button>
               </div>
               <p className={css.control__counter}>
-                  Всего новостей:&nbsp;
+                  Ddvfvfd:&nbsp;
                   {' '}
                   <span className={css.control__counter-bold}>{this.props.dataLength}</span>
               </p>
@@ -53,27 +53,26 @@ class Control extends Component {
       );
     } else {
       return (
-        <div className={css.control}>
+        <div>
             <input
                 type="text"
-                className={css.control__input}
                 name="searchInput"
                 placeholder="Search..."
                 onChange={this.props.handleSearch}
             />
-            <div className={css.control__wrap}>
-                <div className={css.control__bts-wrap}>
-                    <button className={css.btn__add} onClick={this.handleClick}>
+            <div>
+                <div>
+                    <button onClick={this.handleClick}>
                         Create new
                     </button>
-                    <button className={css.btn__func} onClick={this.props.uploadTestData}>
+                    <button onClick={this.props.uploadTestData}>
                         Upload test data
                     </button>
                 </div>
-                <p className={css.control__counter}>
+                <p>
                     Bdvfvdfdvf:&nbsp;
                     {' '}
-                    <span className={css.control__counter-bold}>{this.props.dataLength}</span>
+                    <span>{this.props.dataLength}</span>
                 </p>
             </div>
         </div>

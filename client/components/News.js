@@ -158,24 +158,24 @@ class News extends Component {
           dataLength={data.length}
         />
         {newsTemp}
-        <ReactPaginate
-          previousLabel={'«'}
-          nextLabel={'»'}
+        <ReactPaginate 
+          previousLabel={'previous!!!'}
+          nextLabel={'next!!!'}
           breakLabel={<a href="">...</a>}
-          breakClassName={css.pagination__break}
+          breakClassName={css.paginationBreak}
           pageCount={pagesCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={this.handlePageClick}
-          containerClassName={css.pagination}
-          pageClassName={css.pagination__item}
-          pageLinkClassName={css.pagination__link}
-          previousClassName={css.pagination__item}
-          nextClassName={css.pagination__item}
-          previousLinkClassName={css.pagination__link}
-          nextLinkClassName={css.pagination__link}
-          activeClassName={css.pagination__item-active}
-          disabledClassName={css.pagination__item-disabled}
+          containerClassName={'pagination'}
+          activeClassName={'active'}
+          pageClassName={'page-item'}
+          pageLinkClassName={'page-link'}
+          previousClassName={'page-item'}
+          nextClassName={'page-link'}
+          previousLinkClassName={'page-link'}
+          nextLinkClassName={'page-link'}
+          disabledClassName={'disabled'}
         />
       </div>
     );
@@ -187,6 +187,5 @@ News.propTypes = {
 };
 
 export default News;
-
 
 

@@ -14,10 +14,10 @@ module.exports = {
 
   entry: {
     app: [
-      //'eventsource-polyfill',
+      'eventsource-polyfill',
       'webpack-hot-middleware/client?reload=true',
-      //'webpack/hot/only-dev-server',
-      //'react-hot-loader/patch',
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
       'babel-polyfill',
       path.join(__dirname, './client/assets/scss/global.scss'),
       path.join(__dirname, './client/index.js')
