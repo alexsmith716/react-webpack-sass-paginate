@@ -5,6 +5,7 @@ if (process.env.NODE_ENV === 'production') {
 
 } else {
 
+  // running 
   require('babel-register')({
     plugins: [
       ['babel-plugin-css-modules-transform', {

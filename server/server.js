@@ -3,13 +3,11 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
 import * as dbMongo from './utilities/utilities';
-
-import fs from 'fs';
-
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import favicon from 'serve-favicon';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -20,7 +18,7 @@ const app = new express();
 
 app.use(bodyParser.json());
 app.use('/public', express.static(path.join(__dirname, './public')));
-// app.use(favicon(path.join(__dirname, './public/static/favicon', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '../public/static/favicon', 'favicon.ico')));
 app.use(cors());
 
 
@@ -45,19 +43,58 @@ app.delete('/articles/:id', (req, res) => {
 });
 
 
+
+app.use((req, res, next) => {
+  console.log('>>>>>>>>>>> GOING THROUGH APP NOW <<<<<<<<<<<<<');
+  console.log('REQ.method +++++: ', req.method);
+  console.log('REQ.url ++++++++: ', req.url);
+  console.log('REQ.headers ++++: ', req.headers);
+  if(req.user) {
+    console.log('REQ.user +++++: ', req.user);
+    console.log('REQ.user._id++: ', req.user._id);
+  } else {
+    console.log('REQ.user +++++: NO USER');
+  };
+  console.log('<<<<<<<<<<< GOING THROUGH APP NOW >>>>>>>>>>>>>');
+  // authorization: 'Bearer eyJhbGciOgiJIU',
+  next();
+});
+
+
+
 if (process.env.NODE_ENV !== 'production') {
 
-  console.log('>>>>>>>>> server > process.env.NODE_ENV: ', process.env.NODE_ENV)
+  console.log('>>>>>>>>> server > process.env.NODE_ENV 1: ', process.env.NODE_ENV)
   const compiler = webpack(config);
-  const middleware = (webpackDevMiddleware(compiler, { noInfo: false, publicPath: config.output.publicPath }));
+
+  // emit processed webpack files to express server
+  //const middleware = (webpackDevMiddleware(compiler, { noInfo: false, publicPath: config.output.publicPath }));
+  const middleware = webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    contentBase: 'client',
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false
+    }
+  });
+
+  console.log('>>>>>>>>> server > middleware: ', middleware)
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
 
 
   app.get('*', function response(req, res) {
+    console.log('>>>>>>>>> server > process.env.NODE_ENV 2: ', process.env.NODE_ENV)
+
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.html')));
+
     res.end();
+
   });
 
 
