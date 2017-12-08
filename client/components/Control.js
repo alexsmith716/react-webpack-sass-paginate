@@ -21,60 +21,67 @@ class Control extends React.Component {
   render() {
     if (this.props.showForm) {
       return (
-        <div>
-          <input
-            type="text"
-            name="searchInput"
-            placeholder="Search..."
-            onChange={this.props.handleSearch}
-          />
-          <div>
+        <div className="form">
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              name="searchInput"
+              placeholder="Search..."
+              onChange={this.props.handleSearch}
+            />
             <div>
-              <button onClick={this.handleClick}>
-                Create new1
-              </button>
-              <button onClick={this.props.uploadTestData}>
-                Upload test data1
-              </button>
+              <div>
+                <button className="btn-sm btn-success btn-sm" onClick={this.handleClick}>
+                  Create new
+                </button>
+                <button className="btn-sm btn-primary btn-sm" onClick={this.props.uploadTestData}>
+                  Upload test data
+                </button>
+              </div>
+              <p className={css.counter}>
+                Number of Articles:&nbsp;
+                {' '}
+                <span className={css.counter__bold}>{this.props.dataLength}</span>
+              </p>
             </div>
-            <p>
-              Number of Articles:&nbsp;
-              {' '}
-              <span>{this.props.dataLength}</span>
-            </p>
+            <Form
+              updateState={this.props.updateState}
+              addItem={this.props.addItem}
+              editedItem={this.props.editedItem}
+            />
           </div>
-          <Form
-            updateState={this.props.updateState}
-            addItem={this.props.addItem}
-            editedItem={this.props.editedItem}
-          />
         </div>
       );
     } else {
       return (
-        <div>
-          <input
-            type="text"
-            name="searchInput"
-            placeholder="Search..."
-            onChange={this.props.handleSearch}
-          />
-          <div>
-            <div>
-              <button onClick={this.handleClick}>
-                Create new2
-              </button>
-              <button onClick={this.props.uploadTestData}>
-                Upload test data2
-              </button>
+        <div className="form">
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              name="searchInput"
+              placeholder="Search..."
+              onChange={this.props.handleSearch}
+            />
+            <div className="row">
+              <div>
+                <button className="btn btn-success btn-sm" onClick={this.handleClick}>
+                  Create new!
+                </button>
+                <button className="btn btn-primary btn-sm" onClick={this.props.uploadTestData}>
+                  Upload test data!
+                </button>
+              </div>
+              <p className={css.counter}>
+                Number of Articles:&nbsp;
+                {' '}
+                <span className={css.counter__bold}>{this.props.dataLength}</span>
+              </p>
             </div>
-            <p>
-              Number of Articles:&nbsp;
-              {' '}
-              <span>{this.props.dataLength}</span>
-            </p>
           </div>
         </div>
+
       );
     }
   }

@@ -133,40 +133,42 @@ class News extends React.Component {
       });
 
     } else {
-      newsTemp = <p className={css.news__warning}>Jbsdjcbdhshjscbhs.</p>;
+      newsTemp = <p className={css.news__warning}>Warning!</p>;
     }
 
     return (
-      <div className={css.news}>
-        <Control
-          handleSearch={this.handleSearch}
-          addItem={this.addItem}
-          uploadTestData={this.uploadTestData}
-          showForm={this.state.showForm}
-          editedItem={this.state.editedItem}
-          updateState={this.updateState}
-          dataLength={data.length}
-        />
-        {newsTemp}
-        <ReactPaginate 
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={<a href="">...</a>}
-          breakClassName={css.paginationBreak}
-          pageCount={pagesCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={this.handlePageClick}
-          containerClassName={'pagination'}
-          activeClassName={'active'}
-          pageClassName={'page-item'}
-          pageLinkClassName={'page-link'}
-          previousClassName={'page-item'}
-          nextClassName={'page-link'}
-          previousLinkClassName={'page-link'}
-          nextLinkClassName={'page-link'}
-          disabledClassName={'disabled'}
-        />
+      <div className="row">
+        <div className="col-lg-12">
+          <Control
+            handleSearch={this.handleSearch}
+            addItem={this.addItem}
+            uploadTestData={this.uploadTestData}
+            showForm={this.state.showForm}
+            editedItem={this.state.editedItem}
+            updateState={this.updateState}
+            dataLength={data.length}
+          />
+          {newsTemp}
+          <ReactPaginate 
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={<a href="">...</a>}
+            breakClassName={css.paginationBreak}
+            pageCount={pagesCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={this.handlePageClick}
+            containerClassName={'pagination'}
+            activeClassName={'active'}
+            pageClassName={'page-item'}
+            pageLinkClassName={'page-link'}
+            previousClassName={'page-item'}
+            nextClassName={'page-item'}
+            previousLinkClassName={'page-link'}
+            nextLinkClassName={'page-link'}
+            disabledClassName={'disabled'}
+          />
+        </div>
       </div>
     );
   }
