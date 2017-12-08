@@ -28,12 +28,12 @@ class Article extends React.Component {
 
     return (
 
-      <div>
+      <div className={css.article}>
+        <div className={css.article__control}>
+          <div className={css.article__edit} onClick={this.handleEdit}>
 
-        <div>
-
-          <div onClick={this.handleEdit}>
             <svg
+              className={css['article__svg-icon']}
               version="1.1"
               id="Capa_1"
               x="0px"
@@ -60,8 +60,9 @@ class Article extends React.Component {
             </svg>
           </div>
 
-          <div onClick={this.handleDelete}>
+          <div className={css.article__remove} onClick={this.handleDelete}>
             <svg
+              className={css['article__svg-icon']}
               version="1.1"
               id="Capa_1"
               x="0px"
@@ -91,13 +92,13 @@ class Article extends React.Component {
 
         </div>
 
-        <h4>{header}</h4>
+        <h4 className={css.article__header}>{header}</h4>
 
-        <p>
-          {author} <span>{date}</span>
+        <p className={css.article__author}>
+          {author} <span className={css.article__date}>{date}</span>
         </p>
 
-        <p>
+        <p className={css.article__text}>
           {text}
         </p>
 

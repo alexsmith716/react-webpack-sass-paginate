@@ -8,11 +8,15 @@ import css from './App.scss';
 class App extends React.Component {
   
   constructor(props) {
+
     super(props);
+
     this.state = {
         localData: []
     };
+
     this.updateData = this.updateData.bind(this);
+
   }
 
   componentDidMount() {
