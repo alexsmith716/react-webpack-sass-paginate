@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Form from './Form';
-
 import css from './Control.scss';
+
 
 class Control extends React.Component {
 
@@ -23,57 +23,57 @@ class Control extends React.Component {
       return (
         <div>
           <input
-              type="text"
-              name="searchInput"
-              placeholder="Search..."
-              onChange={this.props.handleSearch}
+            type="text"
+            name="searchInput"
+            placeholder="Search..."
+            onChange={this.props.handleSearch}
           />
           <div>
-              <div>
-                  <button onClick={this.handleClick}>
-                      Create new1
-                  </button>
-                  <button onClick={this.props.uploadTestData}>
-                      Upload test data1
-                  </button>
-              </div>
-              <p>
-                  Ddvfvfd:&nbsp;
-                  {' '}
-                  <span>{this.props.dataLength}</span>
-              </p>
+            <div>
+              <button onClick={this.handleClick}>
+                Create new1
+              </button>
+              <button onClick={this.props.uploadTestData}>
+                Upload test data1
+              </button>
+            </div>
+            <p>
+              Number of Articles:&nbsp;
+              {' '}
+              <span>{this.props.dataLength}</span>
+            </p>
           </div>
           <Form
-              updateState={this.props.updateState}
-              addItem={this.props.addItem}
-              editedItem={this.props.editedItem}
+            updateState={this.props.updateState}
+            addItem={this.props.addItem}
+            editedItem={this.props.editedItem}
           />
         </div>
       );
     } else {
       return (
         <div>
-            <input
-                type="text"
-                name="searchInput"
-                placeholder="Search..."
-                onChange={this.props.handleSearch}
-            />
+          <input
+            type="text"
+            name="searchInput"
+            placeholder="Search..."
+            onChange={this.props.handleSearch}
+          />
+          <div>
             <div>
-                <div>
-                    <button onClick={this.handleClick}>
-                        Create new2
-                    </button>
-                    <button onClick={this.props.uploadTestData}>
-                        Upload test data2
-                    </button>
-                </div>
-                <p>
-                    Bdvfvdfdvf:&nbsp;
-                    {' '}
-                    <span>{this.props.dataLength}</span>
-                </p>
+              <button onClick={this.handleClick}>
+                Create new2
+              </button>
+              <button onClick={this.props.uploadTestData}>
+                Upload test data2
+              </button>
             </div>
+            <p>
+              Number of Articles:&nbsp;
+              {' '}
+              <span>{this.props.dataLength}</span>
+            </p>
+          </div>
         </div>
       );
     }

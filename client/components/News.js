@@ -1,13 +1,10 @@
-
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
 import css from './News.scss';
-
 import Article from './Article';
 import Control from './Control';
-
 import testData from '../data/testData';
 import api from '../api';
 
@@ -25,7 +22,6 @@ class News extends React.Component {
       currentPage: 1,
       offset: 0
     };
-
     this.handleSearch = this.handleSearch.bind(this);
     this.uploadTestData = this.uploadTestData.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -34,7 +30,6 @@ class News extends React.Component {
     this.updateState = this.updateState.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
     this.checkSearchVal = this.checkSearchVal.bind(this);
-
   }
 
   handleSearch(e) {
@@ -114,28 +109,6 @@ class News extends React.Component {
       }
   }
 
-  // Replace map arrow function
-  // with Object.keys(this.props.ntn).forEach
-/*
-      newsTemp = Object.keys(data).forEach((p,i) => {
-
-        if (i >= this.state.offset && startCount < this.props.perPage) {
-          startCount++;
-          console.log('>>>>>>>>> FOOO1: ', p);
-          console.log('>>>>>>>>> FOOO2: ', i);
-          return (
-            <Article
-              key={p.id}
-              data={p}
-              editItem={this.editItem}
-              removeItem={this.removeItem}
-            />
-          );
-        }
-        
-      })
-*/
-
   render() {
     const data = this.checkSearchVal(this.state.displayedNews);
     let newsTemp;
@@ -176,8 +149,8 @@ class News extends React.Component {
         />
         {newsTemp}
         <ReactPaginate 
-          previousLabel={'previous!!!'}
-          nextLabel={'next!!!'}
+          previousLabel={'previous'}
+          nextLabel={'next'}
           breakLabel={<a href="">...</a>}
           breakClassName={css.paginationBreak}
           pageCount={pagesCount}
